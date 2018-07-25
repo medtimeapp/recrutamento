@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <h2>Lista de médicos</h2>
+
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Celular</th>
+        <th>Data de nascimento</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let medico of doctorList">
+        <td>{{medico.nome}}</td>
+        <td>{{medico.cpf}}</td>
+        <td>{{medico.celular}}</td>
+        <td>{{medico.data_nascimento}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

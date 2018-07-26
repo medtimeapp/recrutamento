@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <h2>Adicionar médico</h2>
+  <form [formGroup]="medicoForm" (ngSubmit)="enviar()">
+    <div class="form-group">
+      <label for="nomeMedico">Nome:</label>
+      <input id="nomeMedico" class="form-control" type="text" formControlName="name" aria-describedby="nomeHelper">
+      <small id="nomeHelper" class="form-text text-muted">Digite o nome do médico, minimo de 3 letras.</small>
+    </div>
+  
+    <div class="form-group">
+      <label for="cpfMedico">CPF:</label>
+      <app-validate-cpf id="cpfMedico" aria-describedby="cpfHelper" (cpfStatus)="setCpfStatus($event)"></app-validate-cpf>
+      <small id="cpfHelper" class="form-text text-muted">Digite o CPF do médico, apenas números.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="telMedico">Telefone:</label>
+      <input id="telMedico" class="form-control" placeholder="034988774444" aria-describedby="telhelper" type="text" formControlName="phone">
+      <small id="telhelper" class="form-text text-muted">Digite o telefone do médico.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="dataMedico">Nascimento:</label>
+      <input id="dataMedico" class="form-control" type="date" formControlName="birthday">
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!medicoForm.valid">Enviar</button>
+    <button style="margin-left: 10px" class="btn btn-primary" (click)=listarMedicos()>Listar médicos</button>
+  </form>
+</div>

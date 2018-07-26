@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <h2>Lista de médicos</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Celular</th>
+        <th>Data de nascimento</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let medico of parsedList">
+        <td>{{medico.nome}}</td>
+        <td>{{medico.cpf}}</td>
+        <td>{{medico.celular}}</td>
+        <td>{{medico.dt_nascimento}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-primary" (click)="addMedico()">Adicionar médico</button>
+</div>

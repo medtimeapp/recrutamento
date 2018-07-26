@@ -16,14 +16,14 @@ export class MedicosService {
       celular: '034999924449',
       nome: 'Pedro Vitorino',
       cpf: '10113786638',
-      data_nascimento: new Date('28/12/1993')
+      data_nascimento: new Date('12/28/1993')
     },
     {
       id_medico: 2,
       celular: '034999923339',
       nome: 'Pedro Sousa',
       cpf: '10113786538',
-      data_nascimento:  new Date('22/11/1990')
+      data_nascimento:  new Date('11/22/1990')
     },
   ]
 

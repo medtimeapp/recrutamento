@@ -2,6 +2,12 @@
 
 Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 1.7.4, utilizar Angular na versão 5.2.11 e Typescript na versão 2.5.3
 
+## Considerações
+
+* Por algum motivo de segurança não foi possivel buscar os dados na url passada para o teste, para não prejudicar a aplicação como um todo, trabalhei com os dados em memória.
+
+* A API usada não prermitiu usar id_medico, ela exige o uso de id. 
+
 ## Setting up
 
 * Verifique se você está executando o node 6.9.x e npm 3.x.x ou superior, execute o comando: node -v e npm -v em um terminal/console window

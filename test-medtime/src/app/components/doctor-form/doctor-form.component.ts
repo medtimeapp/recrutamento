@@ -50,4 +50,8 @@ export class DoctorFormComponent implements OnInit {
       this.route.navigate(['doctorList']);
     }
   }
+
+  listarMedicos() {
+    this.route.navigate(['doctorList']);
+  }
 }

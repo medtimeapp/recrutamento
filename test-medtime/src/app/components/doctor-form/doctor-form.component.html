@@ -24,6 +24,7 @@
       <input id="dataMedico" class="form-control" type="date" formControlName="birthday">
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="!medicoForm.valid">Enviar</button>
+    <button type="submit" class="btn btn-success" [disabled]="!medicoForm.valid">Enviar</button>
+    <button style="margin-left: 10px" class="btn btn-primary" (click)=listarMedicos()>Listar médicos</button>
   </form>
 </div>

@@ -1,0 +1,32 @@
+<form (ngSubmit)="onSubmit()" #medicForm="ngForm">
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input [(ngModel)]="medic.nome" #nomeInput="ngModel" type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" required>
+    <small [hidden]="nomeInput.valid || nomeInput.pristine"  class="form-text text-muted">Nome é obrigatório</small>
+  </div>
+
+  <div class="form-group">
+    <label for="cpf">CPF/CNPJ</label>
+    <input [(ngModel)]="medic.cpf" [cpf]="medic.cpf" #cpfInput="ngModel" type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu cpf" required>
+    
+    <small [hidden]="cpfInput.valid || cpfInput.pristine"  class="form-text text-muted">
+        <span *ngIf="cpfInput?.errors?.cpf">CPF inválido</span>
+        <span *ngIf="cpfInput?.errors?.cnpj">CNPJ inválido</span>
+        <span *ngIf="cpfInput?.errors?.required">Documento é obrigatório</span>
+    </small>
+  </div>
+
+  <div class="form-group">
+    <label for="celular">Celular</label>
+    <input [(ngModel)]="medic.celular" #celularInput="ngModel" type="text" class="form-control" id="celular" name="celular" placeholder="Digite seu celular" required>
+    <small [hidden]="celularInput.valid || celularInput.pristine"  class="form-text text-muted">Celular é obrigatório</small>
+  </div>
+
+  <div class="form-group">
+    <label for="data_nascimento">Data nascimento</label>
+    <input [(ngModel)]="medic.data_nascimento" #dataNascimentoInput="ngModel" type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
+    <small [hidden]="dataNascimentoInput.valid || dataNascimentoInput.pristine"  class="form-text text-muted">Data de nascimento é obrigatório</small>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!medicForm.form.valid" (click)="medicForm.reset()">Salvar</button>
+</form>

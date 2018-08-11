@@ -57,10 +57,13 @@ export class MedicoComponent implements OnInit, OnDestroy {
     if (acao === 'novo') {
       validator(this.cpfCnpjForm.value.cpfCnpj).then((result) => {
         // CPF VALIDO
-        this.bsModalRef = this.modalService.show(
-          ModalComponent, Object.assign({}, {}, {})
-        );
-        this.bsModalRef.content.title = titulo;
+        const initialState = {
+          list: [
+            this.cpfCnpjForm.value.cpfCnpj
+          ],
+          title: titulo
+        };
+        this.bsModalRef = this.modalService.show(ModalComponent, {initialState});
         this.medicoService.acaoEvento.emit(acao);
       }, (err) => {
         // CPF INVALIDO

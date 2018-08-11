@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { Subscription } from 'rxjs/Subscription';
@@ -25,6 +25,7 @@ export class ModalComponent implements OnInit, OnDestroy {
   texts;
   idMedico;
   desativarCPF: boolean;
+  list;
 
   constructor(
     private medicoService: MedicoService,
@@ -59,6 +60,10 @@ export class ModalComponent implements OnInit, OnDestroy {
             }
           });
       });
+
+      if (acao !== 'editar') {
+        this.medico.cpf = this.list[0];
+      }
   }
 
   btnSalvar(): void {

@@ -1,0 +1,64 @@
+<div class="card">
+  <div class="card-header">
+      <form #f="ngForm">
+        <div class="form-row">
+          <div class="form-group col-sm-12">
+              <h6>{{texts.titleBar}}</h6>
+          </div>  
+          <div class="form-group col-6 col-md-6">
+            <input
+              id="cpfCnpj"
+              name="cpfCnpj" 
+              type="text"
+              [ngClass]="{'is-invalid': cpfCnpj.valid === false && cpfCnpj.touched, 'is-valid': cpfCnpj.valid === true || cpfCnpj.touched}" 
+              class="form-control ajustImputHeight" 
+              placeholder={{texts.cpf}}
+              required
+              ngModel
+              #cpfCnpj="ngModel">
+              <small *ngIf="cpfCnpj.valid === false && cpfCnpj.touched" class="form-text invalid-feedback">{{texts.alertCpfInvalido}}</small>
+          </div>
+          
+          <div class="form-group col-sm-6 col-md-6">
+              <button class="btn btn-primary" (click)="abrirModal(texts.titleCadastroModal, 'novo')" [disabled]="!f.valid || !f.dirty">{{texts.addItemBtn}}</button>
+          </div>
+        </div>
+      </form>
+  </div>
+  
+  <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead class="thead-light">
+            <tr>
+              <th>ID</th>
+              <th>{{texts.nome | uppercase}}</th>
+              <th>{{texts.cpf | uppercase}}</th>
+              <th>{{texts.celular | uppercase}}</th>
+              <th>{{texts.data_nascimento | uppercase}}</th>
+              <th class="text-center">{{texts.action | uppercase}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let medico of medicosData">
+              <td>{{medico.id}}</td>
+              <td>{{medico.nome}}</td>
+              <td>{{medico.cpf}}</td>
+              <td>{{medico.celular}}</td>
+              <td>{{medico.data_nascimento | date:'dd-MM-yyyy'}}</td>
+              <td class="text-center"> 
+                  <a class="icoTabela" tooltip={{texts.tooltipEdit}} placement="top" (click)="abrirModal(texts.titleEditModal, 'editar', medico.id)" style="cursor: pointer;">
+                      <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true">
+                      </i>
+                  </a>
+                  <a class="icoTabela" tooltip={{texts.tooltipDelete}} placement="top" (click)="deleteItemBtn(medico.id)" style="cursor: pointer;">
+                      <i class="fa fa-trash fa-lg" aria-hidden="true">
+                      </i>
+                  </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
